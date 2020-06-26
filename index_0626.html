@@ -667,7 +667,12 @@
               />
             </div>
 
-            <div class="signinbtn" onclick="login();document.cookie=escape(username.value)+'='+escape(password.value); history.go(0)">登入 ➜</div>
+            <div
+              class="signinbtn"
+              onclick="login();document.cookie=escape(username.value)+'='+escape(password.value); history.go(0)"
+            >
+              登入 ➜
+            </div>
             <div class="signupbtn" onclick="signup()">註冊 ➜</div>
           </div>
 
@@ -1049,7 +1054,7 @@
       });
 
       // 6/26小柏新增
-      user = CookieName()
+      user = CookieName();
       //user = document.getElementById("username").value;
       var balance_url = "http://3.87.137.58:8888/get_balance?user=" + user;
       // get balance的api
@@ -1090,7 +1095,7 @@
       }
 
       //0626小柏新增
-      <script src="cookieUtility.js"></script>
     </script>
+    <script src="cookieUtility.js"></script>
   </body>
 </html>
