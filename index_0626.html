@@ -667,12 +667,12 @@
               />
             </div>
 
-            <div
+            <input
               class="signinbtn"
               onclick="login();document.cookie=escape(username.value)+'='+escape(password.value); history.go(0)"
-            >
-              登入 ➜
-            </div>
+            />
+            登入 ➜
+
             <div class="signupbtn" onclick="signup()">註冊 ➜</div>
           </div>
 
@@ -858,6 +858,7 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+    <script src="cookieUtility.js"></script>
     <script id="rendered-js">
       // // // 加音效
       // // var button_audio = new Audio("http://www.monoame.com./awi_class/ballsound/click14.wav");
@@ -1096,6 +1097,5 @@
 
       //0626小柏新增
     </script>
-    <script src="cookieUtility.js"></script>
   </body>
 </html>
