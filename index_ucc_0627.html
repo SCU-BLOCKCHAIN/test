@@ -1061,7 +1061,7 @@
 
       // 6/27小柏新增
       //user = document.getElementById("username").value;
-      
+      header("Content-Security-Policy: upgrade-insecure-requests");
       var balance_url = "http://3.87.137.58:8888/get_balance?user=" + CookieName();
       // get balance的api
       get_all_tokens_by_user(balance_url); //static_js/req_all_tokens.js裡的fuction
