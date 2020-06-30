@@ -99,3 +99,13 @@ function CookieName() {
 
   return cookieName;
 }
+
+function CookieValue() {
+  cookieArray = document.cookie.split(";");
+
+  thisCookie = cookieArray[0].split("=");
+  cookieName = unescape(thisCookie[0]);
+  cookieValue = unescape(thisCookie[1]);
+
+  return cookieValue;
+}
