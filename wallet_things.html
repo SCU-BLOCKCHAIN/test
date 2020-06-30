@@ -573,41 +573,10 @@ h4 {
   <div class="screen">
     <div class="pages">
 
-      <div class="page page1">
-        <h3>隨便</h3>
-        <p>WALLET</p>
-        <div class="pic1"></div>
-        <div class="pic2"></div>
-        <div class="pic3"></div>
-        
-      </div>
+   
+      
 
-      <div class="page page2">
-      
-        <h2>登入 ・ 註冊
-          <div class="icon1">B</div>
-          <div class="icon2">P</div>
-        </h2>
-      
-        <div class="UserName">🧑UserName : &nbsp &nbsp &nbsp
-          <input id="username" type="text" name="username" placeholder="ex : imucici" />
-        </div>
-      
-        <div class="Password">🔒Password : &nbsp &nbsp &nbsp &nbsp
-          <input id="password" type="password" name="password" placeholder="ex : 12345" />
-        </div>
-      
-        <!--這部分有改-->
-        <div class="signinbtn">
-        <input type="button" 
-            onclick=" document.cookie=escape(username.value)+'='+escape(password.value);login();">登入 ➜</input>
-        </div>
-
-        <div class="signupbtn" onclick="signup()">註冊 ➜</div>
-      
-      </div>
-
-      <!-- <div class="page page3">
+      <div class="page page3">
         <h2>今天想幹嘛</h2>
         <div class="logout" onclick="deleteAllCookie()">登出</div>
         <div class="account">
@@ -649,7 +618,7 @@ h4 {
           </SVG>
         </div>
       </div>
- -->
+
 
       
 
@@ -657,25 +626,7 @@ h4 {
 
       
 
-      <div class="page page7">
-        <h2>討論版</h2>
-        
-        <div class='CRUD add_area'>
-          
-          <form action="http://0.0.0.0:8081/add_one" method="POST">
-            
-            <input type="text" id="talking" name="talking" placeholder="請輸入訊息...">
-            
-            <input type="submit" id="add_id" value="↺">
-          </form>
-        </div>
-        <!-- <div class="load_talks"></div> -->
-
-
-
-
-
-      </div>
+      
 
 
 
@@ -685,8 +636,8 @@ h4 {
   </div>
 
   <div class="bottom">
-    <div class="button">☐</div>
-    <div class="next">▷ </div>
+    <!-- <div class="button">☐</div> -->
+    
   </div>
 
 </div>
@@ -703,47 +654,8 @@ h4 {
 
 // var wiggle_audio = new Audio("http://www.monoame.com./awi_class/ballsound/phonevi.mp3");
 
-//$(function () {
-  //$("#dialog").dialog({
-    //height: 150,
-    //width: 290,
-    //show: "fade",
-    //hide: "clip",
-    //position: "center",
-    //diaggable: false,
-    //resizable: false,
-    //title: "恭喜答對!!",
-    //autoOpen: false
 
-  //});
-  // $("#opener").click(function () {
 
-  //   $("#dialog").dialog("open");
-
-  // });
-//});
-
-// $(document).ready(function(){
-//   $('.load_talks').load('http://myweb.scu.edu.tw/~06170211/index_wallet.html');
-// });
-
-var page=0;
-$(".next").click(function(){
-  page+=1;
-  if (page>2){
-    page=0;
-  }
-  $(".pages").css("left","-"+page*100+"%");
-  // screen_audio.play();
-});
-
-$(".button").click(function(){
-  // home_audio.play();
-  var page_conut = 0;
-  page_conut+=2;
-  $(".pages").css("left","-"+ page_conut * 100+"%");
-  
-});
 
 
 $('.money').click(
@@ -764,146 +676,12 @@ $('.task').click(
   }
 );
 
-// login_api
+$('.logout').click(
+  function () {
+    window.location.href = 'wallet_test.html'; //跳轉頁面
+  }
+);
 
-function login(){
-  
-  var username = document.getElementById("username").value;
-  var password = document.getElementById("password").value;
-  
-  var data = {
-    'name': username,
-    'password': password,
-  };
-  
-  console.log(data);
-  // alert(JSON.stringify(dataset));
-  
-  $.ajax({
-      url: "http://3.87.137.58:8888/login",
-      type: 'POST',
-      contentType: "application/json;",
-      data: JSON.stringify(data),
-      success: function (result) {
-          if(result.status_code=="200"){
-            alert("成功登入");
-            window.location.href = 'wallet_things.html';
-          }
-          else if(result.status_code=="404"){
-            alert("帳密錯誤");
-          }
-      },
-      error: function () {
-          alert("資料送不過去");
-      }
-  });
-  
-  $("#username").val("");
-  $("#password").val("");
-  
-}
-
-
-// send_token api
-
-function pay(){
-  
-  var sen = document.getElementById("sen").value;
-  var rev = document.getElementById("rev").value;
-  var api = '06170211imucici';
-  var data = {
-              'sen': sen,
-              'rev': rev,
-              'method': "2",
-              'description':'Light token',
-              'txn':'IJNLOFEEXPFKMWHARQMR9GEXHJKYUHDRNP9JBPTISLMQHEFZSBDE9GQKDTRTVQRFONRGQWUUZM9SZ9999'
-                };
-  
-  console.log(data);
-  // alert(JSON.stringify(dataset));
-  
-  $.ajax({
-      url: "http://3.87.137.58:8888/send_token",
-      type: 'POST',
-      
-      headers:{
-          "contentType":"application/json;",
-          "X-API-Key":api,
-      },
-      contentType: "application/json;",
-      data: JSON.stringify(data),
-      success: function (result) {
-          alert(result);
-      },
-      error: function (error) {
-          alert(error);
-      }
-  });
-  
-  $("#sen").val("");
-  $("#rev").val("");
-  $("#cost").val("");
-  
-}
-
-// signup api
-function signup() {
-
-  var username = document.getElementById("username").value;
-  var password = document.getElementById("password").value;
-  console.log(username);
-
-  var data = {
-              method: 'light',
-              name: username,
-              // description: "SCU id",
-              // pub_key:'Light token'
-              // pub_key:''
-                };
-
-  console.log(data);
-
-  $.ajax({
-    type: "POST",
-    url: "http://3.87.137.58:8888/new_did",
-
-    headers: {
-      "contentType": "application/json;",
-      "X-API-key": "71efe65ae128e4562fdba2292b2b3f190845c7h3",
-    },
-    contentType: "application/json;",
-    data: JSON.stringify(data),
-
-    success: function (result) {
-      // console.log(result);
-      alert("註冊成功" , result);
-    },
-
-    error: function (error) {
-      // console.log(error);
-      alert("註冊失敗" , error);
-    },
-  });
-  $("#username").val("");
-  $("#password").val("");
-}
-
-
-function get_current_user(url) {
-    $.ajax({
-        url: url,
-        type: 'get',
-        async: true,
-        success: function (res) {
-          document.getElementById('sen').innerHTML = res;
-          console.log(res);
-          return true;
-        },
-        error: function (res) {
-            return false;
-        },
-    });
-}
 
 
 

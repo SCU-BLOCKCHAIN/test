@@ -140,8 +140,36 @@ html, body {
   cursor: pointer;
 }
 
+/* .cookieName {
+  position: absolute;
+  top: 20px;
+  font-size: 15px;
+}
+
+.cookieValue {
+  position: absolute;
+  top: 60px;
+  font-size: 15px;
+} */
+
+.cookiebtn, .table.table-striped.table-bordered.table-rwd{
+  opacity : 0
+}
 
 
+
+#token_table{
+  position: relative;;
+  top : 80px;
+}
+
+.text{
+  position: absolute;
+  top : 1px;
+  border: solid 1px white;
+  padding: 5px;
+
+}
 
 </style>
 </head>
@@ -160,17 +188,23 @@ html, body {
 
   <div class="screen">
     <div class="pages">
-
       
-
       <div class="page page6">
         <h2>我的帳戶</h2>
         <br />
         <form>
-          請輸入帳號密碼：<br />
-          Name: <input id="cookieName" /><br />
-          Value: <input id="cookieValue" /><br />
-          <input type="button" value="寫入 Cookie"
+          
+          <!-- <div class="cookieName">🧑UserName : &nbsp &nbsp 
+            <input id="cookieName" type="text" name="cookieName" placeholder="ex : imucici" />
+          </div>
+          
+          <div class="cookieValue">🔒Password : &nbsp &nbsp &nbsp
+            <input id="cookieValue" type="password" name="cookieValue" placeholder="ex : 12345" />
+          </div> -->
+          
+
+          
+          <input type="button" class="cookiebtn" value="查看餘額"
             onClick="document.cookie=escape(cookieName.value)+'='+escape(cookieValue.value); history.go(0)" />
           <div>
             <!--放token hash的table-->
@@ -180,14 +214,9 @@ html, body {
             <div class="text">
               <a id="text"> </a>
             </div>
-
-            <div><input type="button" value="刪除 Cookie"
-              onClick="deleteAllCookie()" /></div>
           </div>
       </div>
-      </div>
-      </div>
-
+      
 
 
     </div>
@@ -203,7 +232,7 @@ html, body {
 <script>
     $('.button').click(
         function () {
-            window.location.href = 'http://myweb.scu.edu.tw/~06170211/wallet_test.html'; //跳轉頁面
+            window.location.href = 'wallet_things.html'; //跳轉頁面
         }
     );
         // 6/27小柏新增

@@ -190,8 +190,8 @@
       }
 
       .Sender,
-      .Receiver,
-      .Cost {
+      .Receiver
+      {
         position: relative;
         margin: 20px 0px;
         font-size: 15px;
@@ -243,10 +243,7 @@
               />
             </div>
 
-            <div class="Cost">
-              Cost : &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-              <input id="cost" type="text" name="Cost" placeholder="ex : 1" />
-            </div>
+            
 
             <div class="gopaybtn" onclick="pay()">GoPay !</div>
           </div>
@@ -262,7 +259,7 @@
     <script id="rendered-js">
       $(".button").click(function () {
         window.location.href =
-          "http://myweb.scu.edu.tw/~06170211/wallet_test.html"; //跳轉頁面
+          "wallet_things.html"; //跳轉頁面
       });
 
       // send_token api
@@ -278,7 +275,8 @@
           rev: rev,
           method: "2",
           description: "Light token",
-          txn: money,
+          txn:
+            "IJNLOFEEXPFKMWHARQMR9GEXHJKYUHDRNP9JBPTISLMQHEFZSBDE9GQKDTRTVQRFONRGQWUUZM9SZ9999",
         };
 
         console.log(data);
@@ -304,7 +302,7 @@
 
         $("#sen").val("");
         $("#rev").val("");
-        $("#cost").val("");
+        
       }
 
       function get_all_tokens_by_user(url) {
