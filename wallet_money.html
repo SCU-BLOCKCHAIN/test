@@ -190,8 +190,7 @@
       }
 
       .Sender,
-      .Receiver
-      {
+      .Receiver {
         position: relative;
         margin: 20px 0px;
         font-size: 15px;
@@ -243,8 +242,6 @@
               />
             </div>
 
-            
-
             <div class="gopaybtn" onclick="pay()">GoPay !</div>
           </div>
         </div>
@@ -258,8 +255,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
     <script id="rendered-js">
       $(".button").click(function () {
-        window.location.href =
-          "wallet_things.html"; //跳轉頁面
+        window.location.href = "wallet_things.html"; //跳轉頁面
       });
 
       // send_token api
@@ -275,8 +271,7 @@
           rev: rev,
           method: "2",
           description: "Light token",
-          txn:
-            "IJNLOFEEXPFKMWHARQMR9GEXHJKYUHDRNP9JBPTISLMQHEFZSBDE9GQKDTRTVQRFONRGQWUUZM9SZ9999",
+          txn: money,
         };
 
         console.log(data);
@@ -302,7 +297,6 @@
 
         $("#sen").val("");
         $("#rev").val("");
-        
       }
 
       function get_all_tokens_by_user(url) {
